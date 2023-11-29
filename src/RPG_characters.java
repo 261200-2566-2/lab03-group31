@@ -1,13 +1,13 @@
 public class RPG_characters {
     String name;
-    int level = 1;
+    int level = 0;
     int levelMax = 10;
-    int maximumHP= 100 + 10 * level;
+    int maximumHP = 10;
     int HP;
     double atk = 20;
     double def = 10;
     double spd = 5;
-    int manaMax= 50 + 2 * level;
+    int manaMax = 10;
     int mana;
 
     void showStatus() {
@@ -27,20 +27,38 @@ public class RPG_characters {
         this.name = name;
         mana = manaMax;
         HP = maximumHP;
-        level = 1;
         showStatus();
     }
 
 
 
     void trainHero(){
-        level++;
+        maximumHP= 100 + 10 * level;
+        manaMax= 50 + 2 * level;
         HP = maximumHP;
         mana = manaMax;
         atk += atk + (2*level);
         def += def + (2.5*level);
         spd += spd + (2*level);
         showStatus();
+        if(level > levelMax){
+            level = levelMax;
+            System.out.println("You are already strong");
+        }
     }
+
+    void beAttacked(){
+        System.out.println("""
+                         //
+                        ||
+                |\\[][][]||-----------------------------\\
+                |/[][][]||-----------------------------/
+                        ||
+                         \\\\""");
+
+        //a character could be attacked by a sword
+        System.out.println("You have been attacked by sword!! ");
+    }
+
 
 }

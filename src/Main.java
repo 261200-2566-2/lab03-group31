@@ -6,13 +6,14 @@ public class Main {
     public static void main(String[] args) {
         RPG_characters a = new RPG_characters();
         Scanner aa = new Scanner(System.in);
+        Scanner two = new Scanner(System.in);
         System.out.println("Let's create your character please gimme ur name: ");
         String AnsOne = aa.next();
         a.createHero(AnsOne);
-        System.out.println("Train Hero? (Y/N)");
-        String AnsTwo = aa.next();
-        String AnsTwoCon = AnsTwo.toUpperCase();
-        if (AnsTwoCon.equals("Y")) {
+        System.out.println("What level do you want to up (1-10)");
+        int AnsTwo = two.nextInt();
+        if (AnsTwo >= 1 && AnsTwo < 10) {
+            a.level = AnsTwo;
             a.trainHero();
         }
         /////////////////////////////
@@ -20,56 +21,62 @@ public class Main {
         String AnsThree = aa.next();
         String AnsThreeCon = AnsThree.toUpperCase();
 
-        Object[] Item = new Object[3];
 
         switch (AnsThreeCon) {
             case "SWORD" -> {
                 Sword eSw = new Sword();
                 System.out.println("equip sword now");
-                eSw.statusSword();
-                Item[0] = eSw;
-                System.out.println(Item[0]);
                 eSw.equipSword();
 
-                System.out.println("level up items? (Y/N)");
-                String AnsFour = aa.next();
-                String AnsFourCon = AnsFour.toUpperCase();
+                System.out.println("level up items? (1-3)");
+                int AnsFour = aa.nextInt();
 
-                if (AnsFourCon.equals("Y")) {
+                if (AnsFour >= 1 && AnsFour < 4) {
                     eSw.levSwordUp();
                 }
 
+                a.atk += eSw.atk;
+                a.spd += eSw.spd;
+                a.beAttacked();
+                a.HP -= 55;
+                a.mana -= 15/eSw.levelSword;
+                a.showStatus();
             }
             case "SHOES" -> {
                 Shoes eSho = new Shoes();
                 System.out.println("equip Shoes now");
-                eSho.statusShoes();
-                Item[1] = eSho;
                 eSho.equipShoes();
 
-                System.out.println("level up items? (Y/N)");
-                String AnsFour = aa.next();
-                String AnsFourCon = AnsFour.toUpperCase();
+                System.out.println("level up items? (1-3)");
+                int AnsFour = aa.nextInt();
 
-                if (AnsFourCon.equals("Y")) {
+                if (AnsFour >= 1 && AnsFour < 4) {
                     eSho.levShoesUp();
                 }
-
+                a.spd += eSho.spd;
+                a.beAttacked();
+                a.HP -= 50;
+                a.mana -= 60/eSho.levelShoes;
+                a.showStatus();
             }
             case "SHIELD" -> {
                 Shield eShi = new Shield();
                 System.out.println("equip Shield now");
-                eShi.statusShield();
-                Item[2] = eShi;
                 eShi.equipShield();
 
-                System.out.println("level up items? (Y/N)");
-                String AnsFour = aa.next();
-                String AnsFourCon = AnsFour.toUpperCase();
+                System.out.println("level up items? (1-3)");
+                int AnsFour = aa.nextInt();
 
-                if (AnsFourCon.equals("Y")) {
+                if (AnsFour >= 1 && AnsFour < 4) {
                     eShi.levShieldUp();
                 }
+
+                a.atk += eShi.def;
+                a.spd += eShi.spd;
+                a.beAttacked();
+                a.HP -= 20/eShi.levelShield;
+                a.mana -= 10/eShi.levelShield;
+                a.showStatus();
             }
 
 

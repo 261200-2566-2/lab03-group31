@@ -16,6 +16,7 @@ public class Sword {
        void levSwordUp() {
            levelSword++;
            equipSword();
+
       }
 ////
 

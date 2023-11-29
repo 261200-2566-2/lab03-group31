@@ -1,10 +1,10 @@
 public class Shoes {
     int levelShoes = 1;
-    double atk, spd;
+    double  spd;
 
 
     void statusShoes() {
-        equipShoes();
+
         System.out.println("Level Sword : " + levelShoes);
         System.out.println("spd increase  : " + "+" + spd);
     }
@@ -16,6 +16,6 @@ public class Shoes {
     }
     void levShoesUp() {
         levelShoes++;
-        statusShoes();
+        equipShoes();
     }
 }

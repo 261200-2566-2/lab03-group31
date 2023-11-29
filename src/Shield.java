@@ -4,10 +4,9 @@ public class Shield {
     double def, spd;
 
     void statusShield() {
-        equipShield();
         System.out.println("Level Sword : " + levelShield);
         System.out.println("def increase : " + "+" + def);
-        System.out.println("spd decrease  : " + "-" + spd);
+        System.out.println("spd decrease  : " + spd);
     }
 
     void equipShield() {
@@ -18,7 +17,7 @@ public class Shield {
     }
     void levShieldUp() {
         levelShield++;
-        statusShield();
+        equipShield();
     }
 
 

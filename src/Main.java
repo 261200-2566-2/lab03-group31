@@ -24,27 +24,48 @@ public class Main {
         String AnsThree = aa.next();
         String AnsThreeCon = AnsThree.toUpperCase();
 
-        Object[] Item = new Object[3];
+
         switch (AnsThreeCon) {
             case "SWORD" -> {
                 Sword eSw = new Sword();
                 System.out.println("equip sword now");
-                eSw.statusSword();
-                Item[0] = eSw;
-                System.out.println(Item[0]);
+                eSw.equipSword();
+
+                System.out.println("level up items? (Y/N)");
+                String AnsFour = aa.next();
+                String AnsFourCon = AnsFour.toUpperCase();
+
+                if(AnsFourCon.equals("Y")){
+                    eSw.levSwordUp();
+                }
 
             }
             case "SHOES" -> {
                 Shoes eSho = new Shoes();
                 System.out.println("equip Shoes now");
-                eSho.statusShoes();
-                Item[1] = eSho;
+                eSho.equipShoes();
+
+                System.out.println("level up items? (Y/N)");
+                String AnsFour = aa.next();
+                String AnsFourCon = AnsFour.toUpperCase();
+
+                if(AnsFourCon.equals("Y")){
+                    eSho.levShoesUp();
+                }
+
             }
             case "SHIELD" -> {
                 Shield eShi = new Shield();
                 System.out.println("equip Shield now");
-                eShi.statusShield();
-                Item[2] = eShi;
+                eShi.equipShield();
+
+                System.out.println("level up items? (Y/N)");
+                String AnsFour = aa.next();
+                String AnsFourCon = AnsFour.toUpperCase();
+
+                if(AnsFourCon.equals("Y")){
+                    eShi.levShieldUp();
+                }
             }
             default -> {
                 return;
@@ -53,32 +74,13 @@ public class Main {
 
 
         System.out.println("------------------------------------");
-        System.out.println(" choose to level up items? (Y/N)");
-        String AnsFour = aa.next();
-        String AnsFourCon = AnsFour.toUpperCase();
 
-//        if(AnsFourCon.equals("Y")){
-//            switch (AnsThreeCon) {
-//                case "SWORD" -> {
-//                    Item[0].levSwordUp();
-//
-//                }
-//                case "SHIELD" -> a.levShieldUp();
-//                case "SHOES" -> a.levShoesUp();
-//                default -> {
-//                    //no return
-//                }
-//            }
-//            //Equipment has an effect on character's run speed (in total status already)
-//        }
-
-    }
-
+        }
 
     }
 
 
 
 
-}
+
 

@@ -5,7 +5,7 @@ public class Shoes {
 
     void statusShoes() {
 
-        System.out.println("Level Sword : " + levelShoes);
+        System.out.println("Level Shoes : " + levelShoes);
         System.out.println("spd increase  : " + "+" + spd);
     }
 
@@ -17,6 +17,7 @@ public class Shoes {
     void levShoesUp() {
         levelShoes++;
         equipShoes();
+
     }
 ////
 }

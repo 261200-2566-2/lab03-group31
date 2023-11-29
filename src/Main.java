@@ -1,86 +1,17 @@
-
-import java.util.Scanner;
-
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        RPG_characters a = new RPG_characters();
-        Scanner aa = new Scanner(System.in);
-        System.out.println("Let's create your character please gimme ur name: ");
-        String AnsOne = aa.next();
-        a.createHero(AnsOne);
+        // Press Alt+Enter with your caret at the highlighted text to see how
+        // IntelliJ IDEA suggests fixing it.
+        System.out.print("Hello and welcome!");
 
-        System.out.println("Train Hero? (Y/N)");
-        String AnsTwo = aa.next();
-        String AnsTwoCon = AnsTwo.toUpperCase();
+        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
+        for (int i = 1; i <= 5; i++) {
 
-        if(AnsTwoCon.equals("Y")){
-            a.trainHero();
+            // Press Shift+F9 to start debugging your code. We have set one breakpoint
+            // for you, but you can always add more by pressing Ctrl+F8.
+            System.out.println("i = " + i);
         }
-
-        /////////////////////////////
-        System.out.println(" choose to wear (sword / shield / shoes)");
-        String AnsThree = aa.next();
-        String AnsThreeCon = AnsThree.toUpperCase();
-
-
-        switch (AnsThreeCon) {
-            case "SWORD" -> {
-                Sword eSw = new Sword();
-                System.out.println("equip sword now");
-                eSw.equipSword();
-
-                System.out.println("level up items? (Y/N)");
-                String AnsFour = aa.next();
-                String AnsFourCon = AnsFour.toUpperCase();
-
-                if(AnsFourCon.equals("Y")){
-                    eSw.levSwordUp();
-                }
-
-            }
-            case "SHOES" -> {
-                Shoes eSho = new Shoes();
-                System.out.println("equip Shoes now");
-                eSho.equipShoes();
-
-                System.out.println("level up items? (Y/N)");
-                String AnsFour = aa.next();
-                String AnsFourCon = AnsFour.toUpperCase();
-
-                if(AnsFourCon.equals("Y")){
-                    eSho.levShoesUp();
-                }
-
-            }
-            case "SHIELD" -> {
-                Shield eShi = new Shield();
-                System.out.println("equip Shield now");
-                eShi.equipShield();
-
-                System.out.println("level up items? (Y/N)");
-                String AnsFour = aa.next();
-                String AnsFourCon = AnsFour.toUpperCase();
-
-                if(AnsFourCon.equals("Y")){
-                    eShi.levShieldUp();
-                }
-            }
-            default -> {
-                return;
-            }
-        }
-
-
-        System.out.println("------------------------------------");
-
-        }
-
     }
-
-
-
-
-
-
+}

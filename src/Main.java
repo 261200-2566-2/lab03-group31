@@ -1,80 +1,71 @@
-
 import java.util.Scanner;
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
-public class Main {
+//implement a class RPG_character form RPG_character.java
+public class Main extends RPG_characters {
     public static void main(String[] args) {
         RPG_characters a = new RPG_characters();
         Scanner aa = new Scanner(System.in);
-        System.out.println("Let's create your character please gimme ur name: ");
+        System.out.println("Let's create your character! please give me your name: ");
         String AnsOne = aa.next();
         a.createHero(AnsOne);
+
         System.out.println("Train Hero? (Y/N)");
         String AnsTwo = aa.next();
         String AnsTwoCon = AnsTwo.toUpperCase();
-        if (AnsTwoCon.equals("Y")) {
+
+        if(AnsTwoCon.equals("Y")){
             a.trainHero();
         }
-        /////////////////////////////
+
         System.out.println(" choose to wear (sword / shield / shoes)");
         String AnsThree = aa.next();
         String AnsThreeCon = AnsThree.toUpperCase();
 
-        Object[] Item = new Object[3];
-
         switch (AnsThreeCon) {
-            case "SWORD" -> {
-                Sword eSw = new Sword();
-                System.out.println("equip sword now");
-                eSw.statusSword();
-                Item[0] = eSw;
-                System.out.println(Item[0]);
-                eSw.equipSword();
-
-                System.out.println("level up items? (Y/N)");
-                String AnsFour = aa.next();
-                String AnsFourCon = AnsFour.toUpperCase();
-
-                if (AnsFourCon.equals("Y")) {
-                    eSw.levSwordUp();
-                }
-
+            case "SWORD" -> a.equipSword();
+            case "SHIELD" -> a.equipShield();
+            case "SHOES" -> a.equipShoes();
+            default -> {
+                return;
             }
-            case "SHOES" -> {
-                Shoes eSho = new Shoes();
-                System.out.println("equip Shoes now");
-                eSho.statusShoes();
-                Item[1] = eSho;
-                eSho.equipShoes();
+        }
+        System.out.println("------------------------------------");
+        System.out.println(" choose to level up items? (Y/N)");
+        String AnsFour = aa.next();
+        String AnsFourCon = AnsFour.toUpperCase();
 
-                System.out.println("level up items? (Y/N)");
-                String AnsFour = aa.next();
-                String AnsFourCon = AnsFour.toUpperCase();
-
-                if (AnsFourCon.equals("Y")) {
-                    eSho.levShoesUp();
-                }
-
-            }
-            case "SHIELD" -> {
-                Shield eShi = new Shield();
-                System.out.println("equip Shield now");
-                eShi.statusShield();
-                Item[2] = eShi;
-                eShi.equipShield();
-
-                System.out.println("level up items? (Y/N)");
-                String AnsFour = aa.next();
-                String AnsFourCon = AnsFour.toUpperCase();
-
-                if (AnsFourCon.equals("Y")) {
-                    eShi.levShieldUp();
+        if(AnsFourCon.equals("Y")){
+            switch (AnsThreeCon) {
+                case "SWORD" -> a.levSwordUp();
+                case "SHIELD" -> a.levShieldUp();
+                case "SHOES" -> a.levShoesUp();
+                default -> {
+               //no return
                 }
             }
-
-
+            //Equipment has an effect on character's run speed (in total status already)
         }
 
+        System.out.println("""
+                         //
+                        ||
+                |\\[][][]||-----------------------------\\
+                |/[][][]||-----------------------------/
+                        ||
+                         \\\\""");
+
+        //a character could be attacked by a sword
+        System.out.println("You have been attacked by sword!! ");
+
+        if(a.myShield >= 1){
+            a.HP -= 10;     //but can lessen damage with a shield
+        }
+        else{
+            a.HP -= 20;
+        }
+        a.showStatus();
     }
 }
-
+/*
+ Reference : 1.https://codereview.stackexchange.com/questions/148133/generating-rpg-characters-objects
+ 2.https://www.asciiart.eu/weapons/swords
+ */
